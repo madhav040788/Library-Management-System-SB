@@ -1,0 +1,50 @@
+2026-10-28T09:02:31.855+05:30  WARN 10412 --- [bookOperation] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9h25m4s377ms302µs800ns).
+2026-10-28T09:11:27.092+05:30  WARN 10412 --- [bookOperation] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m51s302ms235µs100ns).
+2026-10-28T09:11:40.390+05:30  INFO 10412 --- [bookOperation] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-28T09:11:41.079+05:30  INFO 10412 --- [bookOperation] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-10-28T09:11:41.089+05:30  INFO 10412 --- [bookOperation] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-28T09:11:41.097+05:30  INFO 10412 --- [bookOperation] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-10-28T09:11:41.103+05:30  INFO 10412 --- [bookOperation] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-10-28T09:11:49.811+05:30  INFO 35644 --- [bookOperation] [main] c.madhavTech.BookOperationApplication    : Starting BookOperationApplication using Java 17.0.7 with PID 35644 (C:\Users\10732901\Mservices\bookOperation\target\classes started by 10732901 in C:\Users\10732901\Mservices\bookOperation)
+2026-10-28T09:11:49.821+05:30 DEBUG 35644 --- [bookOperation] [main] c.madhavTech.BookOperationApplication    : Running with Spring Boot v4.1.2, Spring v7.0.10
+2026-10-28T09:11:49.823+05:30  INFO 35644 --- [bookOperation] [main] c.madhavTech.BookOperationApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-10-28T09:11:51.603+05:30  INFO 35644 --- [bookOperation] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-28T09:11:51.761+05:30  INFO 35644 --- [bookOperation] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 137 ms. Found 1 JPA repository interface.
+2026-10-28T09:11:53.077+05:30  INFO 35644 --- [bookOperation] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 9011 (http)
+2026-10-28T09:11:53.101+05:30  INFO 35644 --- [bookOperation] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-28T09:11:53.101+05:30  INFO 35644 --- [bookOperation] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.27]
+2026-10-28T09:11:53.274+05:30  INFO 35644 --- [bookOperation] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3345 ms
+2026-10-28T09:11:53.738+05:30  INFO 35644 --- [bookOperation] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-28T09:11:53.915+05:30  INFO 35644 --- [bookOperation] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.13.Final
+2026-10-28T09:11:54.956+05:30  INFO 35644 --- [bookOperation] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-28T09:11:55.024+05:30  INFO 35644 --- [bookOperation] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-28T09:11:55.406+05:30  INFO 35644 --- [bookOperation] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5feb82b3
+2026-10-28T09:11:55.408+05:30  INFO 35644 --- [bookOperation] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-28T09:11:55.521+05:30  INFO 35644 --- [bookOperation] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/book_operation]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 16.10
+	Default catalog/schema: book_operation/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-28T09:11:57.001+05:30  INFO 35644 --- [bookOperation] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-28T09:11:57.071+05:30  INFO 35644 --- [bookOperation] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-28T09:11:57.184+05:30  INFO 35644 --- [bookOperation] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-28T09:11:58.125+05:30  WARN 35644 --- [bookOperation] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-28T09:11:58.839+05:30  INFO 35644 --- [bookOperation] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 9011 (http) with context path '/'
+2026-10-28T09:11:58.865+05:30  INFO 35644 --- [bookOperation] [main] c.madhavTech.BookOperationApplication    : Started BookOperationApplication in 10.104 seconds (process running for 11.234)
+2026-10-28T09:12:06.187+05:30  INFO 35644 --- [bookOperation] [http-nio-9011-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-28T09:12:06.188+05:30  INFO 35644 --- [bookOperation] [http-nio-9011-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-28T09:12:06.190+05:30  INFO 35644 --- [bookOperation] [http-nio-9011-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-10-28T09:12:06.252+05:30  INFO 35644 --- [bookOperation] [http-nio-9011-exec-1] c.madhavTech.controller.BookController   : controller :: getting books price greater than : 400.0
+2026-10-28T09:12:06.253+05:30  INFO 35644 --- [bookOperation] [http-nio-9011-exec-1] com.madhavTech.service.BookServiceImpl   : fetching books which price is greater than price : 400.0
+2026-10-28T09:12:06.417+05:30  INFO 35644 --- [bookOperation] [http-nio-9011-exec-1] com.madhavTech.service.BookServiceImpl   : Found 2 books with price greater than 400.0
+2026-10-28T09:16:58.454+05:30  WARN 35644 --- [bookOperation] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m15s176ms205µs).
+2026-10-28T09:23:26.664+05:30  WARN 35644 --- [bookOperation] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m10s302ms59µs300ns).
+2026-10-28T10:24:31.076+05:30  WARN 35644 --- [bookOperation] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=58m34s376ms967µs700ns).
+2026-10-28T10:54:38.074+05:30  WARN 35644 --- [bookOperation] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m17s963ms115µs600ns).
