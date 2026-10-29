@@ -5,7 +5,7 @@ import com.madhavTech.dto.BookRequest;
 import com.madhavTech.dto.BookResponse;
 import com.madhavTech.service.BookService;
 import jakarta.validation.Valid;
-import lombok.extern.flogger.Flogger;
+import org.springframework.data.domain.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,5 +60,16 @@ public class BookController {
     public ResponseEntity<List<BookResponse>> getBooksByGreatherThanPrice(@PathVariable Double price){
         logger.info("controller :: getting books price greater than : {}",price);
         return ResponseEntity.ok(bookService.findBooksGreaterThanPrice(price));
+    }
+
+    @GetMapping("/page")
+    public ResponseEntity<Page<BookResponse>> getBooksWithPaginationAndSorting(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "1") int size,
+            @RequestParam(defaultValue = "id") String sortBy,
+            @RequestParam(defaultValue = "asc") String direction){
+        logger.info("Request received for books pagination - page: {}, size: {}, sortBy: {}, direction: {}",page,size,sortBy,direction);
+        Page<BookResponse> response = bookService.getBooksWithPaginationAndSorting(page,size,sortBy,direction);
+        return ResponseEntity.ok(response);
     }
 }
