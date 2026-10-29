@@ -38,12 +38,13 @@ public class BookServiceImpl implements BookService {
                 .map(this::convertEntityToDto)
                 .toList();
     }
-    @CachePut(key = "#request.id")
+//    @CachePut(key = "#request.id")
+    @CacheEvict(allEntries = true)
     @Override
     public BookResponse saveBook(BookRequest request) {
         logger.info("serviceImpl:: saveBook() saving book in db is :  {}",request.getBookName());
-        Book books = convertDtoToEntity(request);
-        Book savedBook = repository.save(books);
+        Book book = convertDtoToEntity(request);
+        Book savedBook = repository.save(book);
         return convertEntityToDto(savedBook);
     }
 
