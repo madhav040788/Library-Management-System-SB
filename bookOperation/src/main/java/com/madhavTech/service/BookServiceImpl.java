@@ -8,11 +8,18 @@ import com.madhavTech.dto.BookResponse;
 import com.madhavTech.entity.Book;
 import com.madhavTech.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
+@CacheConfig(cacheNames = "books")
 @Service
 public class BookServiceImpl implements BookService {
     private final BookRepository repository;
@@ -21,29 +28,36 @@ public class BookServiceImpl implements BookService {
     }
     private static final Logger logger = LoggerFactory.getLogger(BookServiceImpl.class);
 
+    @Cacheable
     @Override
     public List<BookResponse> allBooks() {
         logger.info("SerViceImapl :: allBooks() getting all books here...");
+        logger.info("connecting to database -------");
         return repository.findAll()
                 .stream()
                 .map(this::convertEntityToDto)
                 .toList();
     }
+//    @CachePut(key = "#request.id")
+    @CacheEvict(allEntries = true)
     @Override
     public BookResponse saveBook(BookRequest request) {
         logger.info("serviceImpl:: saveBook() saving book in db is :  {}",request.getBookName());
-        Book books = convertDtoToEntity(request);
-        Book savedBook = repository.save(books);
+        Book book = convertDtoToEntity(request);
+        Book savedBook = repository.save(book);
         return convertEntityToDto(savedBook);
     }
 
+    @Cacheable(key = "#id")
     @Override
     public BookResponse getOneBook(Long id) {
         logger.info("serviceImpl:: getOneBook() getting single book with this id : {}",id);
+        logger.info("connecting to database ---------");
         Book book = findBookById(id);
         return convertEntityToDto(book);
     }
 
+    @CacheEvict(key = "#id")
     @Override
     public void deleteBook(Long id) {
         logger.info("serviceImpl:: deleteBook() removing book from service {}",id);
@@ -57,6 +71,7 @@ public class BookServiceImpl implements BookService {
 //
 //    }
 
+    @CachePut(key = "#id")
     @Override
     public BookResponse updateBook(BookRequest request, Long id) {
 
