@@ -12,6 +12,10 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -112,6 +116,21 @@ public class BookServiceImpl implements BookService {
         List<Book> pricedBooks = repository.findBooksByGreaterThanPrice(price);
         logger.info("Found {} books with price greater than {}",pricedBooks.size(),price);
         return pricedBooks.stream().map(this::convertEntityToDto).toList();
+    }
+
+    @Override
+    public Page<BookResponse> getBooksWithPaginationAndSorting(int page, int size, String sortBy, String direction) {
+        logger.info("Fetching page: {}, size: {}, sortBy : {}, direction: {}",page,size,sortBy,direction);
+        // Decide ASC or DESC
+        Sort sort = direction.equalsIgnoreCase("desc")
+                ? Sort.by(sortBy).descending()
+                : Sort.by(sortBy).ascending();
+        // Page numbers start from 0
+        Pageable pageable = PageRequest.of(page,size,sort);
+        // Fetch requested page from database
+        Page<Book> bookPage = repository.findAll(pageable);
+        // Convert Book entity -> BookResponse DTO
+        return bookPage.map(this::convertEntityToDto);
     }
 
 
